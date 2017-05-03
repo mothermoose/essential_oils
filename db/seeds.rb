@@ -10,5 +10,5 @@ oil.save
 oil = Oil.new({name:"lavender", uses:"calming", price:12, image:"http://media.doterra.com/us/en/images/product/lavender-15ml.jpg"})
 oil.save
 
-oil = Oil.new({name:"patchuli", uses:"grounding", price:15, image:"http://media.doterra.com/us/en/images/product/patchouli-15ml.jpg"})
+oil = Oil.new({name:"patchouli", uses:"grounding", price:15, image:"http://media.doterra.com/us/en/images/product/patchouli-15ml.jpg"})
 oil.save
