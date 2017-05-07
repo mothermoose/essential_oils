@@ -1,0 +1,9 @@
+<h1>Essential Oils</h1>
+
+<% @oils.each do |oil| %>
+<h2><a href="/oils/<%= oil.id %>"><%= oil.name %></a></h2>
+<h4><%= oil.uses %></h2>
+<h3><%= oil.price %></h2>
+<img src=<%=oil.image%> style="width:180px;height:228px;">
+<br>
+<% end %>

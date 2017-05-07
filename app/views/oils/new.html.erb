@@ -1,0 +1,21 @@
+<h1> New Essential Oil</h1>
+
+<%= form_tag "/oils", method: :post do %>
+<div>
+Name: <input type="text" name="name">
+</div>
+
+<div>
+Uses: <input type="text" name="uses">
+</div>
+
+<div>
+Price: <input type="text" name="price">
+</div>
+
+<div>
+Image: <input type="text" name="image">
+</div>
+
+<input type="submit" value="Create Essential Oil">
+<% end %>
