@@ -4,3 +4,6 @@
 <h4><%= @oil.uses %></h2>
 <h3><%= @oil.price %></h2>
 <img src=<%=@oil.image%> style="width:180px;height:228px;">
+
+<a href="/oils/<%= @oil.id %>/edit">Edit Oil</a>
+<%= link_to "Delete", "/oils/#{ @oil.id }" ,method: :delete %>

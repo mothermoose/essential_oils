@@ -1,0 +1,21 @@
+<h1> Edit Oil </h1>
+
+<%= form_tag "/oils/#{@oil.id}", method: :patch do %>
+<div>
+Name: <input type="text" name="name" value="<%= @oil.name %>">
+</div>
+
+<div>
+Uses: <input type="text" name="uses" value="<%= @oil.uses %>">
+</div>
+
+<div>
+Price: <input type="text" name="price" value="<%= @oil.price %>">
+</div>
+
+<div>
+Images: <input type="text" name="image" value="<%= @oil.image %>">
+</div>
+
+<input type="submit" value="Update Oil">
+<% end %>

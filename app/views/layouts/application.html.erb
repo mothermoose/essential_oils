@@ -9,8 +9,17 @@
   </head>
 
   <body>
+  <div class="container">
+    <% flash.each do |name, message| %>
+      <div class="alert alert-<% name %> alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= message %> 
+      </div>
+    <% end %>
+    
   <a href="/oils">Home</a>
   <a href="/oils/new">Create Oil</a>
     <%= yield %>
+    </div>
   </body>
 </html>
