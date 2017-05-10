@@ -3,6 +3,7 @@
 <h2><%= @oil.name %></h2>
 <h4><%= @oil.uses %></h2>
 <h3><%= @oil.price %></h2>
+<h4>  <%= @oil.sale_message %>  </h4>
 <img src=<%=@oil.image%> style="width:180px;height:228px;">
 
 <a href="/oils/<%= @oil.id %>/edit">Edit Oil</a>
