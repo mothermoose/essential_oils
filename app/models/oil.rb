@@ -1,9 +1,11 @@
 class Oil < ApplicationRecord
 
-  def sale_message
-    message = "Discount Item!" if price <= 2
-    message = "Everyday Value!" if price > 2
-    message
+  def sale_message 
+    if discounted?
+    "Discount Item!"
+    else 
+    "Everyday Value!"
+    end
   end  
 
   def tax
@@ -12,6 +14,12 @@ class Oil < ApplicationRecord
 
   def total
     price + tax
-  end
+  end 
+
+  def discounted?
+    price < 10
+  end 
+
+
 
 end
