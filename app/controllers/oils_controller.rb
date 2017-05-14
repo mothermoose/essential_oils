@@ -2,6 +2,29 @@ class OilsController < ApplicationController
 
   def index
     @oils = Oil.all
+    sort_attribute = params[:sort]
+    sort_order = params[:sort_order]
+    discount = params[:discount]
+    search_term = params[:search_term]
+
+    if search_term
+      @oils = @oils.where(
+        "name iLIKE ? Or uses iLIKE ?", 
+        "%#{search_term}%", 
+        "%#{search_term}%"
+        )
+    end 
+
+    if discount
+      @oils = @oils.where("price < ?", discount)
+    end 
+
+    if sort_order && sort_attribute
+      @oils = @oils.all.order(sort_attribute => sort_order)
+    elsif sort_attribute
+      @oils = @oils.all.order(sort_attribute)
+      #@oils = Oil.all.order(sort_attribute) 
+    end  
   end 
 
   def new
@@ -20,8 +43,7 @@ class OilsController < ApplicationController
   end
 
   def show
-    oil_id = params[:id]
-    @oil = Oil.find_by(id:oil_id)
+      @oil = Oil.find(params[:id])
   end 
 
   def edit
@@ -46,6 +68,11 @@ class OilsController < ApplicationController
     oil.destroy
     flash[:warning] = "Oil Destroyed"
     redirect_to "/"
+  end  
+
+  def random
+    oil = Oil.all.sample
+    redirect_to "/oils/#{oil.id}"
   end 
 
 end

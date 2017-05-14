@@ -1,5 +1,9 @@
 class Oil < ApplicationRecord
 
+  def discounted?
+    price < 10
+  end 
+  
   def sale_message 
     if discounted?
     "Discount Item!"
@@ -15,11 +19,4 @@ class Oil < ApplicationRecord
   def total
     price + tax
   end 
-
-  def discounted?
-    price < 10
-  end 
-
-
-
 end

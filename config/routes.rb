@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   get '/oils/:id/edit' => 'oils#edit'
   patch 'oils/:id' => 'oils#update'
 
-  delete '/oils/:id' => 'oils#destroy'
+  delete '/oils/:id' => 'oils#destroy' 
+
+  get '/random' => 'oils#random'
 end
