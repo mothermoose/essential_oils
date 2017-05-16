@@ -1,5 +1,7 @@
 class Oil < ApplicationRecord
 
+belongs_to :supplier
+
   def discounted?
     price < 10
   end 

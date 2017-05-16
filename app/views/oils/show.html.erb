@@ -9,6 +9,6 @@
 <img src=<%=@oil.image%> style="width:180px;height:228px;">
 <br>
 <h4>  <%= @oil.sale_message %>  </h4>
-
+<h5>supplied by <%= @oil.supplier.name %></h5>
 <a href="/oils/<%= @oil.id %>/edit">Edit Oil</a>
 <%= link_to "Delete", "/oils/#{ @oil.id }" ,method: :delete %>
