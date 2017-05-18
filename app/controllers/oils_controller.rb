@@ -35,7 +35,7 @@ class OilsController < ApplicationController
                   name: params[:name],
                   uses: params[:uses],
                   price:params[:price],
-                  image:params[:image]
+                  supplier_id: params[:supplier][:supplier_id]
                    )
     oil.save
     flash[:success] = "Oil Created"
@@ -56,7 +56,7 @@ class OilsController < ApplicationController
                         name: params[:name],
                         uses: params[:uses],
                         price: params[:price],
-                        image: params[:image]
+                        supplier_id: params[:supplier][:supplier_id]
                         )
     oil.save
     flash[:success] = "Oil Updated"

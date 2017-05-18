@@ -13,6 +13,11 @@ Uses: <input type="text" name="uses">
 Price: <input type="text" name="price">
 </div>
 
+<div class= "black.text">
+Supplier: <%= collection_select :supplier, :supplier_id, Supplier.all, :id, :name %>
+</div>
+
+
 <div>
 Image: <input type="text" name="image">
 </div>

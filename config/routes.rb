@@ -12,5 +12,13 @@ Rails.application.routes.draw do
 
   delete '/oils/:id' => 'oils#destroy' 
 
-  get '/random' => 'oils#random'
+  get '/random' => 'oils#random' 
+
+  get "/signup" => "users#new"
+  post "/users" => "users#create" 
+
+  get "/login" => "sessions#new"
+  post "/login" => "sessions#create"
+  get "/logout" => "sessions#destroy"
+
 end

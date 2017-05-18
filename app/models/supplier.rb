@@ -1,3 +1,3 @@
 class Supplier < ApplicationRecord
-  has_many :oils
+  has_many :oils 
 end

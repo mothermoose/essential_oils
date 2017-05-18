@@ -6,7 +6,12 @@
 <h4>Tax: <%= number_to_currency@oil.tax %></h4>
 <h4>Total Price: <%= number_to_currency@oil.total %></h4>
 
-<img src=<%=@oil.image%> style="width:180px;height:228px;">
+
+<% @oil.images.each do |image| %>
+<img src=<%= image.url %> style="width:180px;height:228px;">
+<% end %>
+
+
 <br>
 <h4>  <%= @oil.sale_message %>  </h4>
 <h5>supplied by <%= @oil.supplier.name %></h5>
