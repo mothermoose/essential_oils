@@ -1,6 +1,7 @@
 class Oil < ApplicationRecord
 has_many :images
 belongs_to :supplier
+has_many :orders
 
   def discounted?
     price < 10

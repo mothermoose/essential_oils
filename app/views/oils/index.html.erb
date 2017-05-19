@@ -7,7 +7,7 @@
       <h2><a href="/oils/<%= oil.id %>"><%= oil.name %></a></h2>
       <h4><%= oil.uses %></h2>
       <h3><%= oil.price %></h2>
-      <img src="<%=oil.images.first%>" style="width:180px;height:228px;">
+      <img src="<%= oil.images.first.url %>" style="width:180px;height:228px;">
     </div>
   </div>
   <% end %> 
