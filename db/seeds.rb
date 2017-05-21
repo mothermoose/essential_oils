@@ -11,4 +11,14 @@ oil = Oil.new({name:"lavender", uses:"calming", price:12, image:"http://media.do
 oil.save
 
 oil = Oil.new({name:"patchouli", uses:"grounding", price:15, image:"http://media.doterra.com/us/en/images/product/patchouli-15ml.jpg"})
-oil.save
+oil.save 
+
+#1 -expensive
+#2 -organic
+#3 -ingestiable 
+
+CategoryProduct.create!([
+          {category_id: 1, product_id: 2},
+          {category_id: 1, product_id: 4},
+          {category_id: 1, product_id: 7},
+                   ])

@@ -6,6 +6,11 @@ class OilsController < ApplicationController
     sort_order = params[:sort_order]
     discount = params[:discount]
     search_term = params[:search_term]
+    category = params[:category]
+
+    if category
+      @oils = Category.find_by(name: category).products
+    end 
 
     if search_term
       @oils = @oils.where(

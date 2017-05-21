@@ -22,10 +22,9 @@
 <div>
 Quantity: <input type="text" name="quantity">
 </div> 
-<div>
-Oil Id: <input type="text" name="oil_id">
-</div>
 
+<input type="hidden" name="oil_id" value= "<%= @oil.id %>">
+<br>
+<input type="submit" value="Buy Now" class="btn btn-primary">
 
-<input type="submit" value="Buy Now">
 <% end %>

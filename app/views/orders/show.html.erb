@@ -1,13 +1,13 @@
-<h1> Here is your Order </h1>
-
-<h2> Order Id: <%= @order.id %> </h2>
+<h1> Order Confirmation </h1>
+<h5> Order Id: 57600<%= @order.id %> </h5>
 <br>
-<h2> Order Quantity: <%= @order.quantity %> </h2>
+<h2> <%= @order.oil.name %> oil </h2>
+<h5> Oil Id: <%= @order.oil_id %> </h5> 
+<h3> Price: <%= number_to_currency(@order.oil.price) %> </h3>
+<h3> Order Quantity: <%= @order.quantity %> </h3>
+<h4> Subtotal: <%= number_to_currency(@order.subtotal) %> </h4>
+<h4> Tax: <%= number_to_currency(@order.tax) %> </h4>
+<h2> Grand Total: <%= number_to_currency(@order.total) %> </h2> 
 <br>
-<h2> Oil Id: <%= @order.oil_id %> </h2> 
-<br>
-<h3> Subtotal: <%= @order.subtotal %> </h3>
-<br>
-<h4> Tax: <%= @order.tax %> </h4>
-<br>
-<h2> Grand Total: <%= @order.total %> </h2>
+<h5> Purchased By: <%= @order.user.email %> </h5>
+<h5> Purchased On: <%= @order.created_at %> </h5>
