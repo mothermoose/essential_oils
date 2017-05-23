@@ -9,7 +9,7 @@ class OilsController < ApplicationController
     category = params[:category]
 
     if category
-      @oils = Category.find_by(name: category).products
+      @oils = Category.find_by(name: category).oils
     end 
 
     if search_term

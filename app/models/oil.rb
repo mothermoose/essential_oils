@@ -3,8 +3,8 @@ has_many :images
 belongs_to :supplier
 has_many :orders
 
-has_many :category_products 
-has_many :categories, through: :category_products
+has_many :category_oils
+has_many :categories, through: :category_oils
 
   def discounted?
     price < 10
@@ -34,4 +34,5 @@ has_many :categories, through: :category_products
       image_collection.first.url
     end
   end 
+
 end

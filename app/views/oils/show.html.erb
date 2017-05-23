@@ -8,23 +8,29 @@
 
 
 <% @oil.images.each do |image| %>
-<img src=<%= image.url %> style="width:180px;height:228px;">
+  <img src=<%= image.url %> style="width:180px;height:228px;">
 <% end %>
 
+<div>
+<h5> Category Type: </h5><% @oil.categories.each do |bee| %>
+  <%= bee.name %>
+  <%= "-" %>
+  <% end %>
+</div>
 
 <br>
 <h4>  <%= @oil.sale_message %>  </h4>
 <h5>supplied by <%= @oil.supplier.name %></h5>
-<a href="/oils/<%= @oil.id %>/edit">Edit Oil</a>
-<%= link_to "Delete", "/oils/#{ @oil.id }" ,method: :delete %> 
-
-<%= form_tag "/orders", method: :post do %>
+  <a href="/oils/<%= @oil.id %>/edit">Edit Oil</a>
+  <%= link_to "Delete", "/oils/#{ @oil.id }" ,method: :delete %> 
+  <%= form_tag "/orders", method: :post do %>
 <div>
-Quantity: <input type="text" name="quantity">
+  Quantity: <input type="text" name="quantity">
 </div> 
 
 <input type="hidden" name="oil_id" value= "<%= @oil.id %>">
 <br>
 <input type="submit" value="Buy Now" class="btn btn-primary">
 
-<% end %>
+<% end %> 
+

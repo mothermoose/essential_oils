@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170521163612) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    
   end
 
   create_table "category_oils", force: :cascade do |t|
