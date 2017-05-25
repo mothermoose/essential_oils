@@ -1,10 +1,13 @@
 <h1> Order Confirmation </h1>
 <h5> Order Id: 57600<%= @order.id %> </h5>
 <br>
-<h2> <%= @order.oil.name %> oil </h2>
-<h5> Oil Id: <%= @order.oil_id %> </h5> 
-<h3> Price: <%= number_to_currency(@order.oil.price) %> </h3>
-<h3> Order Quantity: <%= @order.quantity %> </h3>
+
+<% @order.carted_products.each do |cartprod| %>
+    <h3><%= cartprod.oil.name %> - <%= number_to_currency(cartprod.oil.price) %> X <%= cartprod.quantity %></h3>
+    <br>
+<% end %> 
+
+
 <h4> Subtotal: <%= number_to_currency(@order.subtotal) %> </h4>
 <h4> Tax: <%= number_to_currency(@order.tax) %> </h4>
 <h2> Grand Total: <%= number_to_currency(@order.total) %> </h2> 

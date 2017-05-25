@@ -1,2 +1,20 @@
-<h1> Your Cart </h1>
+<h1> Your Cart </h1> 
+
+<h2> Please review your items </h2>
+
+<div class="well">
+<% @carted_products.each do |cartprod| %>
+    <h3><%= cartprod.oil.name %> - <%= number_to_currency(cartprod.oil.price) %> X <%= cartprod.quantity %> - <%= link_to "remove", "/carted_products/carted_products#{carted_products.id }", method: :delete %></h3>
+    <h6>Oil Id: <%= cartprod.oil.id %></h6>
+    <br>
+<% end %> 
+</div>
+
+ <%= form_tag "/orders", method: :post do %>
+<div>
+
+<input type="submit" value="Buy Now!" class="btn btn-primary">
+
+<% end %> 
+
 
