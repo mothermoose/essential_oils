@@ -1,5 +1,6 @@
 class OilsController < ApplicationController
-
+before_action :authenticate_admin!, except: [:index, :show, :random]
+  
   def index
     @oils = Oil.all
     sort_attribute = params[:sort]
@@ -28,23 +29,26 @@ class OilsController < ApplicationController
       @oils = @oils.all.order(sort_attribute => sort_order)
     elsif sort_attribute
       @oils = @oils.all.order(sort_attribute)
-      #@oils = Oil.all.order(sort_attribute) 
     end  
   end 
 
   def new
+    @oil = Oil.new
   end 
 
   def create
-    oil = Oil.new(
+    @oil = Oil.new(
                   name: params[:name],
                   uses: params[:uses],
                   price:params[:price],
                   supplier_id: params[:supplier][:supplier_id]
                    )
-    oil.save
-    flash[:success] = "Oil Created"
-    redirect_to "/oils/#{ oil.id }"
+    if @oil.save
+      flash[:success] = "Oil Created"
+      redirect_to "/oils/#{ oil.id }"
+    else
+      render 'new.html.erb'
+    end 
   end
 
   def show
@@ -56,16 +60,24 @@ class OilsController < ApplicationController
   end 
 
   def update
-    oil = Oil.find(params[:id])
-    oil.assign_attributes(
+    
+    @oil = Oil.find(params[:id])
+    @oil.assign_attributes(
                         name: params[:name],
                         uses: params[:uses],
                         price: params[:price],
                         supplier_id: params[:supplier][:supplier_id]
                         )
-    oil.save
-    flash[:success] = "Oil Updated"
-    redirect_to "/oils/#{ oil.id }"
+
+    if @oil.save
+      flash[:success] = "Oil Updated"
+      redirect_to "/oils/#{ @oil.id }"
+    else
+      render 'new.html.erb'
+    end 
+  
+
+
   end 
 
   def destroy

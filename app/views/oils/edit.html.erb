@@ -1,5 +1,9 @@
 <h1> Edit Oil </h1>
 
+<% @errors.each do |error| %>
+  <h2><%= error %></h2>
+<% end %>
+
 <%= form_tag "/oils/#{@oil.id}", method: :patch do %>
 <div>
 Name: <input type="text" name="name" value="<%= @oil.name %>">

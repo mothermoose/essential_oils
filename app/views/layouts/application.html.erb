@@ -66,7 +66,7 @@
             <li><a href="/oils?sort=price&sort_order=desc">Price Highest to Lowest</a></li>
             <li><a href="/oils?sort=price&sort_order=asc">Price Lowest to Highest</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a></li>
+            <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart ( <%= @cart_count %> )</a></li>
           </ul>
         </li>
       </ul>
@@ -83,7 +83,11 @@
     <% end %>
 
   <a href="/oils">Home</a>
-  <a href="/oils/new">Create Oil</a>
+
+  <% if admin_signed_in? %>
+    <a href="/oils/new"> Create Oil</a>
+  <% end %>
+ 
     <%= yield %>
   </div>
   </body>

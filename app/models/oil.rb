@@ -5,7 +5,14 @@ has_many :carted_products
 has_many :orders, through: :carted_products
 
 has_many :category_oils
-has_many :categories, through: :category_oils
+has_many :categories, through: :category_oils 
+
+validates :name, presence: true
+validates :name, uniqueness: true
+validates :price, presence: true
+validates :price, numericality: true
+validates :description, presence: true
+validates :description, length: { maximum: 500}
 
   def discounted?
     price < 10

@@ -1,7 +1,8 @@
 class CartedProductsController < ApplicationController
+before_action :authenticate_user!
 
   def index
-    if current_user && current_user.cart.count > 0
+    if current_user && current_user.current_cart.count > 0
       @carted_products = current_user.current_cart
     else 
       flash[:warning] = "Why don't you add something to your cart, dude?"

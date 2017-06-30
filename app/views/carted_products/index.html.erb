@@ -3,9 +3,9 @@
 <h2> Please review your items </h2>
 
 <div class="well">
-<% @carted_products.each do |cartprod| %>
-    <h3><%= cartprod.oil.name %> - <%= number_to_currency(cartprod.oil.price) %> X <%= cartprod.quantity %> - <%= link_to "remove", "/carted_products/carted_products#{carted_products.id }", method: :delete %></h3>
-    <h6>Oil Id: <%= cartprod.oil.id %></h6>
+<% @carted_products.each do |carted_product| %>
+    <h3><%= carted_product.oil.name %> - <%= number_to_currency(carted_product.oil.price) %> X <%= carted_product.quantity %> - <%= link_to "remove", "/carted_products/#{ carted_product.id }", method: :delete %></h3>
+    <h6>Oil Id: <%= carted_product.oil.id %></h6>
     <br>
 <% end %> 
 </div>
